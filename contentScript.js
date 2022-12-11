@@ -1,14 +1,22 @@
-
 const script = function () {
+  setInterval(() => {
+    chrome.storage.local.get('shorts-disabled', function (result) {
+      if (result["shorts-disabled"] == true) {
+        console.log("We can disable Shorts")
+        var shortsAtt = document.querySelectorAll('[overlay-style="SHORTS"]');
+        var newItem = document.createElement('div');
 
-    setInterval(() => {
+        for (i = 0; i < shortsAtt.length; i++) {
+          shortsAtt[i].parentNode.parentNode.parentNode.parentNode.parentNode.replaceWith(newItem);
+        }
 
-    var shortsAtt = document.querySelectorAll('[overlay-style="SHORTS"]');
-    var newItem = document.createElement('div');
+      } else if (result["shorts-disabled"] == false) {
+        console.log("We can NOT disable Shorts")
 
-    for (i = 0; i < shortsAtt.length; i++) {
-         shortsAtt[i].parentNode.parentNode.parentNode.parentNode.parentNode.replaceWith(newItem);
-    }
+      } else {
+        console.log("there was an error")
+      }
+    });
 
   }, 1100)
 

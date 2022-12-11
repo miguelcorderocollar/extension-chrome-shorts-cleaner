@@ -1,24 +1,28 @@
 {
   "manifest_version": 3,
   "name": "Youtube Shorts Cleaner",
-  "version": "1.0.2",
-  "description": "Remove all the Shorts videos from the Youtube thread",
-  "author": "Maxime Verdy",
+  "version": "1.0.0",
+  "description": "Extension Chrome to hide Youtube Shorts from Subscriptions and other areas where regular videos appear.",
+  "author": "Miguel Cordero",
   "icons": {
     "128": "./images/128.png",
     "48": "./images/48.png",
     "32": "./images/32.png",
     "16": "./images/16.png"
-},
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "./images/48.png",
+      "128": "./images/128.png"
+    }
+  },
   "content_scripts": [
     {
-      "matches": [
-        "https://www.youtube.com/*"
-      ],
-      "js": [
-        "contentScript.js"
-      ],
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["contentScript.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "permissions": ["storage", "activeTab", "scripting", "tabs"]
 }
