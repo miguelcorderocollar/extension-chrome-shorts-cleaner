@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Youtube Shorts Cleaner",
+  "name": "Youtube Customizer",
   "version": "1.0.0",
-  "description": "Extension Chrome to hide Youtube Shorts from Subscriptions and other areas where regular videos appear.",
+  "description": "Extension Chrome to customize Youtube to my liking.",
   "author": "Miguel Cordero",
   "icons": {
     "128": "./images/128.png",
@@ -24,5 +24,8 @@
       "run_at": "document_end"
     }
   ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
   "permissions": ["storage", "activeTab", "scripting", "tabs"]
 }
